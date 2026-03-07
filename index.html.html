@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Horus Audiobooks | Esoteric & Occult Audiobook Library</title>
+
+<meta name="description" content="Explore the Horus Audiobook catalog: Kenneth Grant, Aleister Crowley, Austin Osman Spare and more esoteric and occult audiobooks.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+body{
+background:#141414;
+font-family:Arial;
+color:white;
+margin:0;
+}
+
+header{
+background:black;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+}
+
+.logo{
+color:#e50914;
+font-size:26px;
+font-weight:bold;
+}
+
+.hero{
+height:45vh;
+display:flex;
+align-items:center;
+padding-left:10%;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+url("https://i.ibb.co/DZ9PCrn/fundo-PNG.png");
+background-size:cover;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.catalog{
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1b1b1b;
+border-radius:6px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.cover{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.info{
+padding:15px;
+}
+
+.title{
+font-size:15px;
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.author{
+font-size:13px;
+color:#aaa;
+margin-bottom:10px;
+}
+
+.buy{
+display:block;
+text-align:center;
+padding:10px;
+background:#e50914;
+color:white;
+text-decoration:none;
+font-weight:bold;
+border-radius:4px;
+}
+
+.buy:hover{
+background:#b20710;
+}
+
+.counter{
+text-align:center;
+margin-bottom:20px;
+color:#aaa;
+}
+
+footer{
+margin-top:40px;
+padding:30px;
+text-align:center;
+background:black;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<i class="fa fa-headphones"></i> HORUS AUDIOBOOK
+</div>
+
+</header>
+
+<section class="hero">
+<div>
+<h1>Horus Audiobook Library</h1>
+<p>Exclusive Esoteric & Occult Audiobooks</p>
+</div>
+</section>
+
+<section class="catalog">
+
+<div class="counter">
+<span id="count"></span> Audiobooks Available
+</div>
+
+<div class="grid" id="catalog"></div>
+
+</section>
+
+<footer>
+
+© Horus Audiobook
+
+</footer>
+
+<script>
+
+const books = [
+
+{
+title:"The Complete Typhonian Trilogy",
+author:"Kenneth Grant",
+cover:"https://i.ibb.co/v2n9s5c/KENNETH-GRANT-COLECTION-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/gsypu"
+},
+
+{
+title:"The Wisdom of the River",
+author:"Alessandrho Pereira",
+cover:"https://i.ibb.co/wrKnxR3k/The-Wisdom-of-the-River-Aless-ndrho-Per-ira-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/ghnja"
+},
+
+{
+title:"The Magical Revival",
+author:"Kenneth Grant",
+cover:"https://i.ibb.co/KpN1vbRs/The-Magical-Revival-Kenneth-Grant-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/tplfci"
+},
+
+{
+title:"Anathema of Zos",
+author:"Austin Osman Spare",
+cover:"https://i.ibb.co/DDRKgN0T/Anathema-Of-Zos-The-Sermon-to-the-Hypocrites-Austin-Osman-Spare-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/bysnk"
+},
+
+{
+title:"Aleister Crowley and the Hidden God",
+author:"Kenneth Grant",
+cover:"https://i.ibb.co/yFDfkdTK/2-Aleister-Crowley-and-the-Hidden-God-removebg-preview.png",
+link:"https://horusaudiobook.gumroad.com/l/xylnm"
+},
+
+{
+title:"Hecate's Fountain",
+author:"Kenneth Grant",
+cover:"https://i.ibb.co/spC6x7xV/6-Hecates-Fountain-removebg-preview.png",
+link:"https://horusaudiobook.gumroad.com/l/cdhki"
+},
+
+{
+title:"Ethos",
+author:"Austin Osman Spare",
+cover:"https://i.ibb.co/YFmwP3Wz/ETHOS-Austin-Osman-Spare-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/vrejkl"
+},
+
+{
+title:"The Book of the Law",
+author:"Aleister Crowley",
+cover:"https://i.ibb.co/84Mc05yv/The-Book-of-the-Law-Aleister-Crowley-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/svlgs"
+},
+
+{
+title:"The Alchemist",
+author:"Paulo Coelho",
+cover:"https://i.ibb.co/zTCJVndd/The-Alchemist-Paulo-Coelho-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/vrwtn"
+},
+
+{
+title:"Gamaliel: Diary of a Vampire",
+author:"Kenneth Grant",
+cover:"https://i.ibb.co/SDTmr72Y/GAMALIEL-The-Diary-of-a-Vampire-CAPA-TRANSPARENTE.png",
+link:"https://horusaudiobook.gumroad.com/l/yrlxf"
+},
+
+{
+title:"Beyond The Mauve Zone",
+author:"Kenneth Grant",
+cover:"https://i.ibb.co/KQRCcSR/8-Beyond-The-Mauve-Zone-removebg-preview.png",
+link:"https://horusaudiobook.gumroad.com/l/ecgrv"
+}
+
+]
+
+const container = document.getElementById("catalog")
+
+books.forEach(book=>{
+
+container.innerHTML+=`
+
+<div class="card">
+
+<img class="cover" src="${book.cover}">
+
+<div class="info">
+
+<div class="title">${book.title}</div>
+
+<div class="author">${book.author}</div>
+
+<a class="buy" href="${book.link}" target="_blank">
+<i class="fa fa-cart-shopping"></i> LEARN MORE
+</a>
+
+</div>
+
+</div>
+
+`
+
+})
+
+document.getElementById("count").innerText = books.length
+
+</script>
+
+</body>
+</html>
